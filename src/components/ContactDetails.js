@@ -17,18 +17,20 @@ export default function ContactDetails({updateContact, updateImage}) {
 
     const urlParams = useParams()
 
-    const fetchContactDetail = async () => {
-        try {
-            const response = await getContact(urlParams.id)
-            setContact(response.data)
-        } catch (error) {
-            console.error(error)
-        }
-    }
 
     useEffect(() => {
+
+        const fetchContactDetail = async () => {
+            try {
+                const response = await getContact(urlParams.id)
+                setContact(response.data)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
         fetchContactDetail()
-    }, []);
+    }, [urlParams]);
 
     const inputRef = useRef()
     const selectImage = () => {
@@ -80,7 +82,7 @@ export default function ContactDetails({updateContact, updateImage}) {
             <br/>
             <div className="profile">
                 <div className="profile__details">
-                    <img src={contact.photoUrl} alt={`Profile photo of ${contact.name}`}/>
+                    <img src={contact.photoUrl} alt=""/>
                     <div className="profile__metadata">
                         <p className="profile__name">{contact.name}</p>
                         <p className="profile__muted">JPG, GIF, or PNG Max size of 10MB</p>
