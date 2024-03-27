@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = 'https://contactmanager.renatobonfim.com/api/contacts'
+const API_URL = 'http://localhost:8084/api/contacts'
 
 export async function saveContact(contact) {
     return await axios.post(API_URL, contact)

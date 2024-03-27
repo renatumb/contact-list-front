@@ -13,13 +13,13 @@ const ContactList = ({data, currentPage, getAllContacts}) => {
             {
                 data?.content?.length > 0 && data?.totalPages > 1 &&
                 <div className="pagination">
-                    <a onClick={ () => { getAllContacts(currentPage - 1)}} className={data.first ? 'disabled' : ""}>&laquo; &laquo;</a>
+                    <button  onClick={ () => { getAllContacts(currentPage - 1)}} className={data.first ? 'disabled btn' : "btn"}>  &laquo; &laquo;</button>
                     {
                         data && [...Array(data.totalPages).values() ].map( (element, index)=>{
-                            return(<a onClick={ () => getAllContacts(index) } className={currentPage===index? "active":""} key={index}>{index+1}</a>)
+                            return(<button  onClick={ () => getAllContacts(index) } className={currentPage===index? "active btn ":"btn"} key={index}>  {index+1}</button>)
                         })
                     }
-                    <a onClick={ () => {getAllContacts(currentPage + 1)}} className={data.last ? "disabled" : ""}>&raquo; &raquo;</a>
+                    <button  onClick={ () => {getAllContacts(currentPage + 1)}} className={data.last ? "disabled btn" : "btn"}>  &raquo; &raquo;</button>
                 </div>
             }
         </main>

@@ -217,6 +217,7 @@ i {
     border-radius: var(--radius-5);
     box-shadow: 0 0 2px var(--black_80);
     transition: 0.2s ease-out;
+    margin: 4px;
 }
 
 .btn-danger {
